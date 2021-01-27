@@ -104,9 +104,11 @@ const Index: FC = () => {
                       <li key={highlight}>{highlight}</li>
                     ))}
                   </ul>
-                  <A tw="text-sm" href={place.website}>
-                    {place.website}
-                  </A>
+                  {place.website && (
+                    <A href={place.website} tw="text-sm">
+                      {place.website}
+                    </A>
+                  )}
                 </Work>
               );
             })}
