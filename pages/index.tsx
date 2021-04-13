@@ -44,7 +44,7 @@ const Index: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header tw="bg-gray-100 p-8 print:bg-white mb-8">
+      <header tw="bg-gray-100 p-8 print:bg-white lg:mb-8">
         <Container tw="grid grid-cols-none lg:grid-cols-2 gap-12 lg:divide-x">
           <article tw="lg:text-right">
             <H1>{basics.name}</H1>
@@ -86,7 +86,7 @@ const Index: FC = () => {
           <ContentAside>
             <H2>Work</H2>
           </ContentAside>
-          <ContentArticle tw="space-y-16">
+          <ContentArticle tw="space-y-8 lg:space-y-16">
             {work.map((place) => {
               return (
                 <Work key={place.company}>
@@ -99,7 +99,7 @@ const Index: FC = () => {
                       )}
                     </P>
                   </div>
-                  <ul tw="list-disc list-inside my-4 mb-8 pl-8">
+                  <ul tw="list-disc list-inside my-4 mb-8 pl-2 lg:pl-8">
                     {place.highlights.map((highlight: string) => (
                       <li key={highlight}>{highlight}</li>
                     ))}
