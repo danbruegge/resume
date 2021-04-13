@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import "twin.macro";
 
 export default class NextDocument extends Document {
   static async getInitialProps(ctx) {
