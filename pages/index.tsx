@@ -88,15 +88,17 @@ const Index: FC = () => {
           </ContentAside>
           <ContentArticle tw="space-y-8 lg:space-y-16">
             {work.map((place) => {
+              const date = buildDate(
+                new Date(place.startDate),
+                new Date(place.endDate)
+              );
+
               return (
-                <Work key={place.company}>
+                <Work key={`${place.company}-${date}`}>
                   <div tw="grid grid-cols-none lg:grid-cols-2 gap-0 lg:gap-12 print:gap-0">
                     <H3>{place.company}</H3>
                     <P tw="italic text-primary text-left lg:text-right print:text-left">
-                      {buildDate(
-                        new Date(place.startDate),
-                        new Date(place.endDate)
-                      )}
+                      {date}
                     </P>
                   </div>
                   <ul tw="list-disc list-inside my-4 mb-8 pl-2 lg:pl-8">
