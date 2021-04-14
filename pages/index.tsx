@@ -1,18 +1,11 @@
 import { FC } from "react";
 import Head from "next/head";
 import tw, { styled } from "twin.macro";
-import format from "date-fns/format";
-import differenceInMonths from "date-fns/differenceInMonths";
 
-import { basics, skills, work } from "../resume.json";
+import { buildDate } from "../utils/buildDate";
+import resume from "../resume.json";
 
-const buildDate = (start: Date, end: Date): string => {
-  const startDate = format(start, "MMM, yyyy");
-  const endDate = format(end, "MMM, yyyy");
-  const months = differenceInMonths(end, start);
-
-  return `${startDate} - ${endDate} (${months} Month${months > 1 ? "s" : ""})`;
-};
+const { basics, skills, work } = resume;
 
 const Container = tw.div`container mx-auto px-2 lg:px-4`;
 const H1 = tw.h1`text-xl lg:text-xxl font-bold pb-4`;
