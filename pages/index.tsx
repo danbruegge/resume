@@ -9,15 +9,15 @@ const { basics, skills, work } = resume;
 
 const Container = tw.div`container mx-auto px-2 lg:px-4`;
 const H1 = tw.h1`text-xl lg:text-xxl font-bold pb-4`;
-const H2 = tw.h2`text-lg lg:text-xl font-bold pb-4 text-primary`;
+const H2 = tw.h2`text-lg lg:text-xl font-bold pb-4 text-primary dark:text-primaryDark`;
 const H3 = tw.h3`text-base lg:text-base font-bold pb-4`;
 const P = tw.p`pb-4`;
 const Skill = tw.div`pb-4`;
 const A = tw.a`underline hover:no-underline`;
-const Keyword = tw.span`inline-block m-2 px-4 py-2 bg-primary rounded-2xl text-white`;
+const Keyword = tw.span`inline-block m-1 px-2 py-1 text-primary dark:text-primaryDark rounded border border-primary dark:border-primaryDark`;
 const ContentContainer = tw(
   Container
-)`py-4 grid grid-cols-none lg:grid-cols-6 gap-4 lg:divide-x`;
+)`py-4 grid grid-cols-none lg:(grid-cols-6 gap-4 divide-x divide-trueGray-500)`;
 const ContentAside = tw.aside`lg:text-right lg:p-12`;
 const ContentArticle = tw.article`lg:col-span-5 lg:p-12`;
 const Work = styled.div`
@@ -37,8 +37,8 @@ const Index: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header tw="bg-gray-100 p-8 print:bg-white lg:mb-8">
-        <Container tw="grid grid-cols-none lg:grid-cols-2 gap-12 lg:divide-x">
+      <header tw="bg-trueGray-100 p-8 dark:bg-[#111] print:bg-white lg:mb-8">
+        <Container tw="grid grid-cols-none lg:(grid-cols-2 gap-12 divide-x dark:divide-trueGray-500)">
           <article tw="lg:text-right">
             <H1>{basics.name}</H1>
             <H2>{basics.label}</H2>
@@ -59,7 +59,7 @@ const Index: FC = () => {
         </Container>
       </header>
 
-      <main tw="divide-y mb-12 p-8">
+      <main tw="divide-y dark:divide-trueGray-500 mb-12 p-8">
         <ContentContainer>
           <ContentAside>
             <H2>Skills</H2>
@@ -90,7 +90,7 @@ const Index: FC = () => {
                 <Work key={`${place.company}-${date}`}>
                   <div tw="grid grid-cols-none lg:grid-cols-2 gap-0 lg:gap-12 print:gap-0">
                     <H3>{place.company}</H3>
-                    <P tw="italic text-primary text-left lg:text-right print:text-left">
+                    <P tw="italic text-primary dark:text-primaryDark text-left lg:text-right print:text-left">
                       {date}
                     </P>
                   </div>
@@ -114,7 +114,7 @@ const Index: FC = () => {
         <A
           href="/cv.pdf"
           title="Download CV as PDF"
-          tw="fixed bottom-4 right-4 lg:bottom-12 lg:right-12 bg-primary text-white block rounded-full h-16 w-16 lg:h-20 lg:w-20 p-4 flex items-center justify-center no-underline"
+          tw="fixed bottom-4 right-4 lg:bottom-12 lg:right-12 bg-primary dark:bg-primaryDark text-white block rounded-full h-16 w-16 lg:h-20 lg:w-20 p-4 flex items-center justify-center no-underline"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

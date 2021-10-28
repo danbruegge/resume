@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.emerald["700"],
+        primaryDark: "#aacc33",
       },
       fontSize: {
         sm: "20px",

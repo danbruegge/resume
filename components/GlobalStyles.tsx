@@ -10,7 +10,9 @@ const CustomGlobalStyles = createGlobalStyle`
 
   body {
     ${tw`h-full antialiased`}
-    ${tw`text-gray-700 text-sm lg:text-base`}
+    ${tw`text-sm lg:text-base`}
+    ${tw`text-trueGray-700 dark:text-white`}
+    ${tw`bg-white dark:bg-trueGray-900`}
   }
 `;
 
