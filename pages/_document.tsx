@@ -1,8 +1,18 @@
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ReactElement } from "react";
+import Document, {
+  DocumentInitialProps,
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class NextDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
     try {
@@ -27,7 +37,7 @@ export default class NextDocument extends Document {
     }
   }
 
-  render() {
+  render(): ReactElement {
     return (
       <Html lang="en">
         <Head />
