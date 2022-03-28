@@ -35,6 +35,13 @@ const Index: FC = () => {
         <title>Resume - {basics.name}</title>
         <meta name="description" content={basics.summary} />
         <link rel="icon" href="/favicon.ico" />
+        <script
+          defer
+          type="text/javascript"
+          src="https://api.pirsch.io/pirsch.js"
+          id="pirschjs"
+          data-code="GqHty434nWqNleCKrQKwtteyCBVYGVwa"
+        ></script>
       </Head>
 
       <header tw="bg-trueGray-100 p-8 dark:bg-[#111] print:bg-white lg:mb-8">

@@ -5,7 +5,7 @@ import tw from "twin.macro";
 
 const CustomGlobalStyles = createGlobalStyle`
   html, body {
-      ${tw`h-full`}
+    ${tw`h-full`}
   }
 
   body {
