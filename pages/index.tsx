@@ -58,9 +58,7 @@ const Index: FC = () => {
               <br />
               <A href={`mailto:${basics.email}`}>{basics.email}</A>
               <br />
-              <A href={basics.website}>
-                {basics.website.replace("https://", "")}
-              </A>
+              <A href={`https://${basics.website}`}>{basics.website}</A>
             </P>
           </aside>
         </Container>
@@ -107,7 +105,7 @@ const Index: FC = () => {
                     ))}
                   </ul>
                   {place.website && (
-                    <A href={place.website} tw="text-sm">
+                    <A href={`https://${place.website}`} tw="text-sm">
                       {place.website}
                     </A>
                   )}
