@@ -1,18 +1,18 @@
-This is a [Next.js](https://nextjs.org/) resume project with [twin.macro](https://github.com/ben-rogerson/twin.macro).
+This is a static [Next.js](https://nextjs.org/) resume project with [twin.macro](https://github.com/ben-rogerson/twin.macro).
 
 ## Getting Started
 
-+ Run `yarn install`
-+ Copy `resume.example.json` to `resume.json`. Edit as you need it.
-+ Run `yarn dev`
-+ Open [http://localhost:3000](http://localhost:3000) to see the result.
+- Run `yarn install`
+- Copy `resume.example.json` to `resume.json`. Edit as you need it.
+- Run `yarn dev`
+- Open [http://localhost:3000](http://localhost:3000) to see the result.
 
 ## Build
 
-+ Install `wkhtmltopdf` to generate PDF from Page on build.
-+ Run `yarn build`
+- Install `wkhtmltopdf` to generate PDF from Page on build.
+- Run `yarn build`
 
 ## Deploy
 
-+ Edit `<TARGET>` in `deploy.sh` 
-+ Run `yarn deploy`
+- Edit `<TARGET>` in `deploy.sh`
+- Run `yarn deploy` to deploy the static site
