@@ -1,10 +1,9 @@
-import format from "date-fns/format";
-import differenceInMonths from "date-fns/differenceInMonths";
+import { format, formatDistanceStrict } from "date-fns";
 
 export const buildDate = (start: Date, end: Date): string => {
   const startDate = format(start, "MMM, yyyy");
   const endDate = format(end, "MMM, yyyy");
-  const months = differenceInMonths(end, start);
+  const distance = formatDistanceStrict(start, end);
 
-  return `${startDate} - ${endDate} (${months} Month${months > 1 ? "s" : ""})`;
+  return `${startDate} - ${endDate} (${distance})`;
 };
