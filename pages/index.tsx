@@ -40,7 +40,7 @@ function Index() {
       />
 
       <header className="bg-neutral-100 p-8 dark:bg-[#111] lg:mb-8 print:bg-white">
-        <Container className="lg:gap-12 lg:grid-cols-2">
+        <Container className="lg:grid-cols-2 lg:gap-12">
           <article className="lg:text-right">
             <h1 className="pb-4 text-xl font-bold lg:text-xxl">
               {basics.name}
