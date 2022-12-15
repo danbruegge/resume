@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Script from "next/script";
 
 import {
   A,
@@ -19,24 +20,27 @@ import { buildDate } from "../utils/buildDate";
 
 const { basics, skills, work } = resume;
 
+const pageTitle = `Resume - ${basics.name}`;
+
 function Index() {
   return (
     <>
       <Head>
-        <title>Resume - {basics.name}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={basics.summary} />
         <link rel="icon" href="/favicon.ico" />
-        <script
-          defer
-          type="text/javascript"
-          src="https://api.pirsch.io/pirsch.js"
-          id="pirschjs"
-          data-code="GqHty434nWqNleCKrQKwtteyCBVYGVwa"
-        ></script>
       </Head>
 
+      <Script
+        defer
+        type="text/javascript"
+        src="https://api.pirsch.io/pirsch.js"
+        id="pirschjs"
+        data-code="GqHty434nWqNleCKrQKwtteyCBVYGVwa"
+      />
+
       <header className="bg-neutral-100 p-8 dark:bg-[#111] lg:mb-8 print:bg-white">
-        <Container className="gap-12 lg:grid-cols-2">
+        <Container className="lg:gap-12 lg:grid-cols-2">
           <article className="lg:text-right">
             <h1 className="pb-4 text-xl font-bold lg:text-xxl">
               {basics.name}
