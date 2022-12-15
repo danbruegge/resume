@@ -1,10 +1,10 @@
 const colors = require("tailwindcss/colors");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: [],
+  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   darkMode: "media",
   theme: {
-    colors,
     extend: {
       colors: {
         primary: colors.emerald["700"],

@@ -1,34 +1,25 @@
-import { FC } from "react";
+import React from "react";
 import Head from "next/head";
-import tw, { styled } from "twin.macro";
 
-import { buildDate } from "../utils/buildDate";
+import {
+  A,
+  Container,
+  ContentArticle,
+  ContentAside,
+  ContentContainer,
+  Name,
+  P,
+  Skill,
+  Title,
+  Work,
+} from "components/ui";
+
 import resume from "../resume.json";
+import { buildDate } from "../utils/buildDate";
 
 const { basics, skills, work } = resume;
 
-const Container = tw.div`container mx-auto px-2 lg:px-4`;
-const H1 = tw.h1`text-xl lg:text-xxl font-bold pb-4`;
-const H2 = tw.h2`text-lg lg:text-xl font-bold pb-4 text-primary dark:text-primaryDark`;
-const H3 = tw.h3`text-base lg:text-base font-bold pb-4`;
-const P = tw.p`pb-4`;
-const Skill = tw.div`pb-4`;
-const A = tw.a`underline hover:no-underline`;
-const Keyword = tw.span`inline-block m-1 px-2 py-1 text-primary dark:text-primaryDark rounded border border-primary dark:border-primaryDark`;
-const ContentContainer = tw(
-  Container
-)`py-4 grid grid-cols-none lg:(grid-cols-6 gap-4 divide-x divide-trueGray-500)`;
-const ContentAside = tw.aside`lg:text-right lg:p-12`;
-const ContentArticle = tw.article`lg:col-span-5 lg:p-12`;
-const Work = styled.div`
-  @media print {
-    page-break-inside: avoid;
-  }
-
-  ${tw`pb-8 border-b border-dashed border-gray-400 print:border-0`}
-`;
-
-const Index: FC = () => {
+function Index() {
   return (
     <>
       <Head>
@@ -44,13 +35,15 @@ const Index: FC = () => {
         ></script>
       </Head>
 
-      <header tw="bg-trueGray-100 p-8 dark:bg-[#111] print:bg-white lg:mb-8">
-        <Container tw="grid grid-cols-none lg:(grid-cols-2 gap-12 divide-x dark:divide-trueGray-500)">
-          <article tw="lg:text-right">
-            <H1>{basics.name}</H1>
-            <H2>{basics.label}</H2>
+      <header className="bg-neutral-100 p-8 dark:bg-[#111] lg:mb-8 print:bg-white">
+        <Container className="gap-12 lg:grid-cols-2">
+          <article className="lg:text-right">
+            <h1 className="pb-4 text-xl font-bold lg:text-xxl">
+              {basics.name}
+            </h1>
+            <Title>{basics.label}</Title>
           </article>
-          <aside tw="lg:pl-8">
+          <aside className="lg:pl-8">
             <P>
               {basics.location.city}
               <br />
@@ -64,17 +57,22 @@ const Index: FC = () => {
         </Container>
       </header>
 
-      <main tw="divide-y dark:divide-trueGray-500 mb-12 p-8">
+      <main className="mb-12 divide-y p-8 dark:divide-neutral-500 print:divide-y-0">
         <ContentContainer>
           <ContentAside>
-            <H2>Skills</H2>
+            <Title>Skills</Title>
           </ContentAside>
           <ContentArticle>
             {skills.map((skill) => (
               <Skill key={skill.name}>
-                <H3>{skill.name}</H3>
+                <Name>{skill.name}</Name>
                 {skill.keywords.map((keyword) => (
-                  <Keyword key={keyword}>{keyword}</Keyword>
+                  <span
+                    key={keyword}
+                    className="m-1 inline-block rounded border border-primary px-2 py-1 text-primary dark:border-primaryDark dark:text-primaryDark"
+                  >
+                    {keyword}
+                  </span>
                 ))}
               </Skill>
             ))}
@@ -82,9 +80,9 @@ const Index: FC = () => {
         </ContentContainer>
         <ContentContainer>
           <ContentAside>
-            <H2>Work</H2>
+            <Title>Work</Title>
           </ContentAside>
-          <ContentArticle tw="space-y-8 lg:space-y-16">
+          <ContentArticle className="space-y-8 lg:space-y-16">
             {work.map((place) => {
               const date = buildDate(
                 new Date(place.startDate),
@@ -93,19 +91,19 @@ const Index: FC = () => {
 
               return (
                 <Work key={`${place.company}-${date}`}>
-                  <div tw="grid grid-cols-none lg:grid-cols-2 gap-0 lg:gap-12 print:gap-0">
-                    <H3>{place.company}</H3>
-                    <P tw="italic text-primary dark:text-primaryDark text-left lg:text-right print:text-left">
+                  <div className="grid grid-cols-none gap-0 lg:grid-cols-2 lg:gap-12 print:gap-0">
+                    <Name>{place.company}</Name>
+                    <P className="text-left italic text-primary dark:text-primaryDark lg:text-right print:text-left">
                       {date}
                     </P>
                   </div>
-                  <ul tw="list-disc list-inside my-4 mb-8 pl-2 lg:pl-8">
+                  <ul className="my-4 mb-8 list-inside list-disc pl-2 lg:pl-8">
                     {place.highlights.map((highlight: string) => (
                       <li key={highlight}>{highlight}</li>
                     ))}
                   </ul>
                   {place.website && (
-                    <A href={`https://${place.website}`} tw="text-sm">
+                    <A href={`https://${place.website}`} className="text-sm">
                       {place.website}
                     </A>
                   )}
@@ -115,11 +113,11 @@ const Index: FC = () => {
           </ContentArticle>
         </ContentContainer>
       </main>
-      <footer tw="print:invisible">
+      <footer className="print:invisible">
         <A
           href="/cv.pdf"
           title="Download CV as PDF"
-          tw="fixed bottom-4 right-4 lg:bottom-12 lg:right-12 bg-primary dark:bg-primaryDark text-white block rounded-full h-16 w-16 lg:h-20 lg:w-20 p-4 flex items-center justify-center no-underline"
+          className="fixed bottom-4 right-4 block flex h-16 w-16 items-center justify-center rounded-full bg-primary p-4 text-white no-underline dark:bg-primaryDark lg:bottom-12 lg:right-12 lg:h-20 lg:w-20"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -138,6 +136,6 @@ const Index: FC = () => {
       </footer>
     </>
   );
-};
+}
 
 export default Index;

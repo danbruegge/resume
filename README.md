@@ -1,4 +1,4 @@
-This is a static [Next.js](https://nextjs.org/) resume project with [twin.macro](https://github.com/ben-rogerson/twin.macro).
+This is a static [Next.js](https://nextjs.org/) resume project with [TailwindCSS](https://tailwindcss.com/).
 
 ## Getting Started
 
