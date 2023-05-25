@@ -5,7 +5,7 @@ export function Container({
   className,
 }: React.ComponentPropsWithoutRef<"div">) {
   const styles = twMerge(
-    "container mx-auto px-2 lg:px-4 grid grid-cols-none lg:divide-x print:divide-x-0 lg:dark:divide-neutral-500",
+    "container mx-auto px-2 lg:px-4 grid grid-cols-none",
     className
   );
 
@@ -22,14 +22,18 @@ export function ContentContainer({
 
 export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
   return (
-    <h2 className="pb-4 text-lg font-bold text-primary dark:text-primaryDark lg:text-xl">
+    <h2 className="pb-4 font-serif text-lg font-medium lg:mt-[-10px] lg:text-xl">
       {children}
     </h2>
   );
 }
 
 export function Name({ children }: React.ComponentPropsWithoutRef<"h3">) {
-  return <h3 className="pb-4 text-base font-bold lg:text-base">{children}</h3>;
+  return (
+    <h3 className="pb-4 font-serif text-base font-medium lg:text-base">
+      {children}
+    </h3>
+  );
 }
 
 export function P({ children, className }: React.ComponentPropsWithRef<"p">) {
@@ -48,7 +52,7 @@ export function A({
   ...props
 }: React.ComponentPropsWithRef<"a">) {
   const styles = twMerge(
-    "underline hover:no-underline hover:text-primary hover:dark:text-primaryDark",
+    "underline hover:no-underline text-neutral-400 hover:text-secondary hover:dark:text-primary",
     className
   );
 
@@ -74,10 +78,20 @@ export function ContentArticle({
   return <article className={styles}>{children}</article>;
 }
 
-export function Work({ children }: React.ComponentPropsWithoutRef<"div">) {
+export function DateRow({ children }: React.ComponentPropsWithoutRef<"div">) {
   return (
-    <div className="border-b border-dashed border-neutral-400 pb-8 print:break-inside-avoid print:border-0">
-      {children}
+    <div className="relative">
+      <div
+        className="absolute inset-0 flex items-center print:invisible"
+        aria-hidden="true"
+      >
+        <div className="w-full border-t border-neutral-400" />
+      </div>
+      <div className="relative flex justify-end">
+        <span className="bg-white pl-4 text-left font-serif text-secondary dark:bg-black dark:text-primary lg:text-right print:pl-0 print:text-left">
+          {children}
+        </span>
+      </div>
     </div>
   );
 }

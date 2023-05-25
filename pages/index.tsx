@@ -8,11 +8,11 @@ import {
   ContentArticle,
   ContentAside,
   ContentContainer,
+  DateRow,
   Name,
   P,
   Skill,
   Title,
-  Work,
 } from "components/ui";
 
 import resume from "../resume.json";
@@ -39,16 +39,18 @@ function Index() {
         data-code="GqHty434nWqNleCKrQKwtteyCBVYGVwa"
       />
 
-      <header className="bg-neutral-100 p-8 dark:bg-[#111] lg:mb-8 print:bg-white">
+      <header className="border-b border-neutral-200 p-8 dark:border-neutral-800 print:border-0 print:p-0">
         <Container className="lg:grid-cols-2 lg:gap-12">
-          <article className="lg:text-right">
-            <h1 className="pb-4 text-xl font-bold lg:text-xxl">
+          <article>
+            <h1 className="pb-4 font-serif text-xl font-medium lg:text-xxl">
               {basics.name}
             </h1>
-            <Title>{basics.label}</Title>
+            <h2 className="pb-4 font-serif text-sm font-medium text-secondary dark:text-primary lg:text-lg">
+              {basics.label}
+            </h2>
           </article>
           <aside className="lg:pl-8">
-            <P>
+            <P className="lg:text-right">
               {basics.location.city}
               <br />
               {basics.phone}
@@ -61,7 +63,7 @@ function Index() {
         </Container>
       </header>
 
-      <main className="mb-12 divide-y p-8 dark:divide-neutral-500 print:divide-y-0">
+      <main className="mb-12 divide-y px-4 dark:divide-neutral-800 lg:px-24 print:divide-y-0">
         <ContentContainer>
           <ContentAside>
             <Title>Skills</Title>
@@ -73,7 +75,7 @@ function Index() {
                 {skill.keywords.map((keyword) => (
                   <span
                     key={keyword}
-                    className="m-1 inline-block rounded border border-primary px-2 py-1 text-primary dark:border-primaryDark dark:text-primaryDark"
+                    className="mr-3 mb-3 inline-block border border-neutral-200 border-l-secondary bg-neutral-100 px-3 py-1 text-sm italic text-neutral-700 dark:border-neutral-800 dark:border-l-primary dark:bg-neutral-900 dark:text-white"
                   >
                     {keyword}
                   </span>
@@ -88,30 +90,31 @@ function Index() {
           </ContentAside>
           <ContentArticle className="space-y-8 lg:space-y-16">
             {work.map((place) => {
-              const date = buildDate(
+              const [startDate, endDate] = buildDate(
                 new Date(place.startDate),
                 new Date(place.endDate)
               );
 
               return (
-                <Work key={`${place.company}-${date}`}>
-                  <div className="grid grid-cols-none gap-0 lg:grid-cols-2 lg:gap-12 print:gap-0">
+                <div
+                  key={`${place.company}-${startDate}`}
+                  className="break-inside-avoid pb-8 print:border-b print:border-neutral-200 print:pb-0 print:pt-8"
+                >
+                  <DateRow>
+                    {startDate} - {endDate}
+                  </DateRow>
+                  <div className="flex flex-col justify-between pt-8 lg:flex-row print:pt-2">
                     <Name>{place.company}</Name>
-                    <P className="text-left italic text-primary dark:text-primaryDark lg:text-right print:text-left">
-                      {date}
-                    </P>
+                    {place.website && (
+                      <A href={`https://${place.website}`}>{place.website}</A>
+                    )}
                   </div>
-                  <ul className="my-4 mb-8 list-inside list-disc pl-2 lg:pl-8">
-                    {place.highlights.map((highlight: string) => (
+                  <ul className="font-italic my-4 list-outside list-disc pl-8 marker:text-secondary dark:marker:text-primary">
+                    {place.highlights.map((highlight) => (
                       <li key={highlight}>{highlight}</li>
                     ))}
                   </ul>
-                  {place.website && (
-                    <A href={`https://${place.website}`} className="text-sm">
-                      {place.website}
-                    </A>
-                  )}
-                </Work>
+                </div>
               );
             })}
           </ContentArticle>
@@ -121,7 +124,7 @@ function Index() {
         <A
           href="/cv.pdf"
           title="Download CV as PDF"
-          className="fixed bottom-4 right-4 block flex h-16 w-16 items-center justify-center rounded-full bg-primary p-4 text-white no-underline dark:bg-primaryDark lg:bottom-12 lg:right-12 lg:h-20 lg:w-20"
+          className="fixed bottom-4 right-4 flex h-16 w-16 items-center justify-center rounded-full bg-secondary p-4 text-white no-underline opacity-75 hover:text-white hover:opacity-100 dark:bg-primary hover:dark:text-white lg:bottom-12 lg:right-12 lg:h-20 lg:w-20"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

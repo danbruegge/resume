@@ -1,5 +1,3 @@
-const colors = require("tailwindcss/colors");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
@@ -7,10 +5,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.emerald["700"],
-        primaryDark: "#aacc33",
+        secondary: "#e68455",
+        primary: "#5faf5f",
       },
       fontSize: {
+        xs: "15px",
         sm: "20px",
         base: "25px",
         lg: "30px",
