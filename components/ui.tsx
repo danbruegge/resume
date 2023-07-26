@@ -6,7 +6,7 @@ export function Container({
 }: React.ComponentPropsWithoutRef<"div">) {
   const styles = twMerge(
     "container mx-auto px-2 lg:px-4 grid grid-cols-none",
-    className
+    className,
   );
 
   return <div className={styles}>{children}</div>;
@@ -53,7 +53,7 @@ export function A({
 }: React.ComponentPropsWithRef<"a">) {
   const styles = twMerge(
     "underline hover:no-underline text-neutral-400 hover:text-secondary hover:dark:text-primary",
-    className
+    className,
   );
 
   return (

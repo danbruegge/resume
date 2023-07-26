@@ -92,7 +92,7 @@ function Index() {
             {work.map((place) => {
               const [startDate, endDate] = buildDate(
                 new Date(place.startDate),
-                new Date(place.endDate)
+                new Date(place.endDate),
               );
 
               return (
