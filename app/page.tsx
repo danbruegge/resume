@@ -1,7 +1,3 @@
-import React from "react";
-import Head from "next/head";
-import Script from "next/script";
-
 import {
   A,
   Container,
@@ -13,32 +9,16 @@ import {
   P,
   Skill,
   Title,
-} from "components/ui";
+} from "@/components/ui";
 
-import resume from "../resume.json";
-import { buildDate } from "../utils/buildDate";
+import resume from "@/resume.json";
+import { buildDate } from "@/utils/buildDate";
 
 const { basics, skills, work } = resume;
 
-const pageTitle = `Resume - ${basics.name}`;
-
-function Index() {
+export default function Index() {
   return (
     <>
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={basics.summary} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <Script
-        defer
-        type="text/javascript"
-        src="https://api.pirsch.io/pirsch.js"
-        id="pirschjs"
-        data-code="GqHty434nWqNleCKrQKwtteyCBVYGVwa"
-      />
-
       <header className="border-b border-neutral-200 p-8 dark:border-neutral-800 print:border-0 print:p-0">
         <Container className="lg:grid-cols-2 lg:gap-12">
           <article>
@@ -144,5 +124,3 @@ function Index() {
     </>
   );
 }
-
-export default Index;

@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "dev": "next dev",
     "build:page": "next build && next export",
     "build:pdf": "wkhtmltopdf --print-media-type --quiet --enable-local-file-access --disable-javascript --grayscale --page-size A4 --margin-top 2cm --margin-bottom 2cm out/index.html public/cv.pdf",
-    "build": "yarn build:page && yarn build:pdf",
+    "build": "pnpm build:page && pnpm build:pdf",
     "deploy": "sh deploy.sh",
     "start": "next start",
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,json}'",
@@ -23,7 +22,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.4.5",
-    "@types/react": "^18.2.16",
+    "@types/react": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "autoprefixer": "^10.4.14",
