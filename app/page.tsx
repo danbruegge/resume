@@ -41,6 +41,12 @@ export default function Index() {
             </P>
           </aside>
         </Container>
+        <A
+          href="/cv.pdf"
+          className="print:invisible flex justify-center font-bold"
+        >
+          Download CV as PDF
+        </A>
       </header>
 
       <main className="mb-12 divide-y px-4 dark:divide-neutral-800 lg:px-24 print:divide-y-0">
@@ -78,12 +84,13 @@ export default function Index() {
               return (
                 <div
                   key={`${place.company}-${startDate}`}
-                  className="break-inside-avoid pb-8 print:border-b print:border-neutral-200 print:pb-0 print:pt-8"
+                  style={{ breakInside: "avoid", pageBreakInside: "avoid" }}
+                  className="pb-8 print:border-b print:border-neutral-200 print:pb-0 print:pt-8"
                 >
                   <DateRow>
                     {startDate} - {endDate}
                   </DateRow>
-                  <div className="flex flex-col justify-between pt-8 lg:flex-row print:pt-2">
+                  <div className="pt-8 lg:flex-row print:pt-2">
                     <Name>{place.company}</Name>
                     {place.website && (
                       <A href={`https://${place.website}`}>{place.website}</A>

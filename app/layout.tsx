@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         id="pirschjs"
         data-code="GqHty434nWqNleCKrQKwtteyCBVYGVwa"
       />
-      <body className="h-full bg-white text-sm font-light text-neutral-700 antialiased dark:bg-black dark:text-white lg:text-base">
+      <body className="h-full bg-white text-sm font-light text-neutral-700 antialiased dark:bg-black dark:text-neutral-200 lg:text-base">
         {children}
       </body>
     </html>

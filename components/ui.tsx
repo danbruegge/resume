@@ -30,7 +30,7 @@ export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
 
 export function Name({ children }: React.ComponentPropsWithoutRef<"h3">) {
   return (
-    <h3 className="pb-4 font-serif text-base font-medium lg:text-base">
+    <h3 className="pb-4 font-serif text-base font-bold lg:text-base">
       {children}
     </h3>
   );
