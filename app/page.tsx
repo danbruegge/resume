@@ -19,7 +19,7 @@ const { basics, skills, work } = resume;
 export default function Index() {
   return (
     <>
-      <header className="border-b border-neutral-200 p-8 dark:border-neutral-800 print:border-0 print:p-0">
+      <header className="border-b border-neutral-200 py-8 dark:border-neutral-800 print:border-0 print:p-0">
         <Container className="lg:grid-cols-2 lg:gap-12">
           <article>
             <h1 className="pb-4 font-serif text-xl font-medium lg:text-xxl">
