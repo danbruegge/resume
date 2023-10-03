@@ -21,7 +21,7 @@ export function ContentContainer({
 
 export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
   return (
-    <h2 className="pb-4 opacity-75 font-serif text-lg font-medium lg:mt-[-10px] lg:text-xl">
+    <h2 className="pb-4 opacity-75 print:opacity-100 font-serif text-lg font-medium lg:mt-[-10px] lg:text-xl">
       {children}
     </h2>
   );
@@ -29,7 +29,7 @@ export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
 
 export function Name({ children }: React.ComponentPropsWithoutRef<"h3">) {
   return (
-    <h3 className="pb-4 opacity-75 font-serif text-base font-bold lg:text-base break-all">
+    <h3 className="pb-4 opacity-75 print:opacity-100 font-serif text-base font-bold lg:text-base break-all">
       {children}
     </h3>
   );
@@ -51,7 +51,7 @@ export function A({
   ...props
 }: React.ComponentPropsWithRef<"a">) {
   const styles = twMerge(
-    "underline hover:no-underline text-primary opacity-75 hover:opacity-100",
+    "underline hover:no-underline text-primary opacity-75 print:opacity-100 hover:opacity-100",
     className,
   );
 

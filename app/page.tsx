@@ -46,7 +46,7 @@ export default function Index() {
       <header className="border-b border-neutral-200 pb-8 pt-8 px-4 lg:pt-16 lg:px-24 dark:border-neutral-800 print:border-0 print:p-0">
         <Container className="lg:grid-cols-2 lg:gap-12">
           <article>
-            <h1 className="pb-4 font-serif text-xl font-bold lg:text-xxl opacity-75">
+            <h1 className="pb-4 font-serif text-xl font-bold lg:text-xxl opacity-75 print:opacity-100">
               {basics.name}
             </h1>
             <h2 className="pb-4 font-serif text-sm font-bold text-primary lg:text-lg">
