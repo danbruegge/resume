@@ -4,10 +4,7 @@ export function Container({
   children,
   className,
 }: React.ComponentPropsWithoutRef<"div">) {
-  const styles = twMerge(
-    "container mx-auto px-2 lg:px-4 grid grid-cols-none",
-    className,
-  );
+  const styles = twMerge("container grid grid-cols-none", className);
 
   return <div className={styles}>{children}</div>;
 }
@@ -16,13 +13,15 @@ export function ContentContainer({
   children,
 }: React.ComponentPropsWithoutRef<typeof Container>) {
   return (
-    <Container className="gap-4 py-4 lg:grid-cols-6">{children}</Container>
+    <Container className="gap-4 lg:gap-12 pt-12 lg:grid-cols-6">
+      {children}
+    </Container>
   );
 }
 
 export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
   return (
-    <h2 className="pb-4 font-serif text-lg font-medium lg:mt-[-10px] lg:text-xl">
+    <h2 className="pb-4 opacity-75 font-serif text-lg font-medium lg:mt-[-10px] lg:text-xl">
       {children}
     </h2>
   );
@@ -30,7 +29,7 @@ export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
 
 export function Name({ children }: React.ComponentPropsWithoutRef<"h3">) {
   return (
-    <h3 className="pb-4 font-serif text-base font-bold lg:text-base">
+    <h3 className="pb-4 opacity-75 font-serif text-base font-bold lg:text-base break-all">
       {children}
     </h3>
   );
@@ -52,7 +51,7 @@ export function A({
   ...props
 }: React.ComponentPropsWithRef<"a">) {
   const styles = twMerge(
-    "underline hover:no-underline text-neutral-400 hover:text-secondary hover:dark:text-primary",
+    "underline hover:no-underline text-primary opacity-75 hover:opacity-100",
     className,
   );
 
@@ -66,14 +65,14 @@ export function A({
 export function ContentAside({
   children,
 }: React.ComponentPropsWithoutRef<"aside">) {
-  return <aside className="lg:p-12 lg:text-right">{children}</aside>;
+  return <aside className="lg:text-right">{children}</aside>;
 }
 
 export function ContentArticle({
   children,
   className,
 }: React.ComponentPropsWithRef<"article">) {
-  const styles = twMerge("lg:col-span-5 lg:p-12", className);
+  const styles = twMerge("lg:col-span-5", className);
 
   return <article className={styles}>{children}</article>;
 }
@@ -88,7 +87,7 @@ export function DateRow({ children }: React.ComponentPropsWithoutRef<"div">) {
         <div className="w-full border-t border-neutral-400" />
       </div>
       <div className="relative flex justify-end">
-        <span className="bg-white pl-4 text-left font-serif text-secondary dark:bg-black dark:text-primary lg:text-right print:pl-0 print:text-left">
+        <span className="bg-light pl-4 text-left font-serif dark:bg-dark text-primary lg:text-right print:pl-0 print:text-left">
           {children}
         </span>
       </div>

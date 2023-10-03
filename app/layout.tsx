@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning={true}>
       <Script
         defer
         type="text/javascript"
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         id="pirschjs"
         data-code="GqHty434nWqNleCKrQKwtteyCBVYGVwa"
       />
-      <body className="h-full bg-white text-sm font-light text-neutral-700 antialiased dark:bg-black dark:text-neutral-200 lg:text-base">
+      <body className="h-full bg-light text-sm font-mono font-light text-dark antialiased dark:bg-dark dark:text-light lg:text-base">
         {children}
       </body>
     </html>
