@@ -4,7 +4,7 @@ export function Container({
   children,
   className,
 }: React.ComponentPropsWithoutRef<"div">) {
-  const styles = twMerge("container grid grid-cols-none", className);
+  const styles = twMerge("mx-auto container grid grid-cols-none", className);
 
   return <div className={styles}>{children}</div>;
 }

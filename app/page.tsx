@@ -45,7 +45,7 @@ export default function Index() {
       </div>
       <header className="border-b border-neutral-200 pb-8 pt-8 px-4 lg:pt-16 lg:px-24 dark:border-neutral-800 print:border-0 print:p-0">
         <Container className="lg:grid-cols-2 lg:gap-12">
-          <article>
+          <article className="lg:text-right">
             <h1 className="pb-4 font-serif text-xl font-bold lg:text-xxl opacity-75 print:opacity-100">
               {basics.name}
             </h1>
@@ -54,7 +54,7 @@ export default function Index() {
             </h2>
           </article>
           <aside className="lg:pl-8">
-            <P className="lg:text-right">
+            <P>
               {basics.location.city}
               <br />
               {basics.phone}
@@ -67,7 +67,7 @@ export default function Index() {
         </Container>
       </header>
 
-      <main className="mb-12 divide-y px-4 dark:divide-neutral-800 lg:px-24 print:divide-y-0">
+      <main className="mb-12 divide-y px-4 dark:divide-neutral-800 print:divide-y-0">
         <ContentContainer>
           <ContentAside>
             <Title>Skills</Title>
