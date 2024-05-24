@@ -110,6 +110,7 @@ export default function Index() {
                   </DateRow>
                   <div className="pt-8 lg:flex-row print:pt-2">
                     <Name>{place.company}</Name>
+                    {place.summary ? <P>{place.summary}</P> : null}
                     {place.website && (
                       <A href={`https://${place.website}`}>{place.website}</A>
                     )}

@@ -1,5 +1,5 @@
 import { type ReactNode } from "react";
-import { type Metadata } from "next";
+import type { Viewport, Metadata } from "next";
 import Script from "next/script";
 
 import "tailwindcss/tailwind.css";
@@ -8,10 +8,14 @@ import resume from "@/resume.json";
 
 const { basics } = resume;
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: `Resume - ${basics.name}`,
   description: basics.summary,
-  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/favicon.ico",
   },

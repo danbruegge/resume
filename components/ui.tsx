@@ -29,7 +29,7 @@ export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
 
 export function Name({ children }: React.ComponentPropsWithoutRef<"h3">) {
   return (
-    <h3 className="pb-4 opacity-75 print:opacity-100 font-serif text-base font-bold lg:text-base break-all">
+    <h3 className="pb-4 opacity-75 print:opacity-100 font-serif text-base font-bold lg:text-lg break-all">
       {children}
     </h3>
   );
