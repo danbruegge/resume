@@ -1,3 +1,7 @@
+import { readFile } from "fs/promises";
+import { join } from "path";
+import type { Metadata } from "next";
+
 import {
   A,
   Container,
@@ -12,13 +16,42 @@ import {
   Dd,
   DetailsWrap,
 } from "@/components/ui";
-
-import resume from "@/resume.json";
 import { buildDate } from "@/utils/buildDate";
+import exampleResume from "@/resume.example.json";
 
-const { basics, skills, languages, work } = resume;
+type Resume = typeof exampleResume;
+type Work = Resume["work"][number];
+type SkillType = Resume["skills"][number];
+type Language = Resume["languages"][number];
 
-export default function Index() {
+async function getResume(): Promise<Resume> {
+  return JSON.parse(
+    await readFile(join(process.cwd(), "resume.json"), "utf-8"),
+  );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const resume = await getResume();
+  const { basics } = resume;
+
+  return {
+    title: `Resume - ${basics.name}`,
+    description: basics.summary,
+    icons: {
+      icon: "/favicon.ico",
+    },
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
+
+export default async function Index() {
+  const resume = await getResume();
+  const { basics, skills, languages, work } = resume;
+  console.log("📝 TODO: Add references section or PDF download.");
+  console.log("📝 TODO: Add word export or download.");
   return (
     <>
       <DownloadCvButton />
@@ -62,11 +95,11 @@ export default function Index() {
         <Container>
           <Title>Skills</Title>
           <ContentArticle>
-            {skills.map((skill) => (
+            {skills.map((skill: SkillType) => (
               <Skill key={skill.name}>
                 <Name>{skill.name}</Name>
                 <P>
-                  {skill.keywords.map((keyword) => (
+                  {skill.keywords.map((keyword: string) => (
                     <span
                       key={keyword}
                       className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
@@ -80,7 +113,7 @@ export default function Index() {
             <Skill>
               <Name>Languages</Name>
               <P>
-                {languages.map((item) => (
+                {languages.map((item: Language) => (
                   <span
                     key={item.language}
                     className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
@@ -95,7 +128,7 @@ export default function Index() {
         <Container className="pt-6 print:break-before-page">
           <Title>Work</Title>
           <ContentArticle className="pt-6 space-y-8 lg:space-y-16">
-            {work.map((place) => {
+            {work.map((place: Work) => {
               const [startDate, endDate] = buildDate(
                 new Date(place.startDate),
                 new Date(place.endDate),
@@ -115,7 +148,7 @@ export default function Index() {
                     {place.summary ? <P>{place.summary}</P> : null}
                   </div>
                   <ul className="font-italic pt-4 list-outside list-disc pl-8 marker:text-primary">
-                    {place.highlights.map((highlight) => (
+                    {place.highlights.map((highlight: string) => (
                       <li key={highlight}>{highlight}</li>
                     ))}
                   </ul>
