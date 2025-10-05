@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build:page": "next build",
-    "build:pdf": "wkhtmltopdf --print-media-type --quiet --enable-local-file-access --disable-javascript --grayscale --page-size A4 --margin-top 2cm --margin-bottom 2cm out/index.html public/cv.pdf",
+    "build:pdf": "node scripts/generate-pdf.mjs",
     "build": "pnpm build:page && pnpm build:pdf",
     "deploy": "sh deploy.sh",
     "start": "next start",
     "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,json}'",
     "lint": "next lint",
-    "types": "tsc --noEmit"
+    "types": "tsc --noEmit",
+    "postinstall": "npx puppeteer browsers install chrome"
   },
   "dependencies": {
     "date-fns": "^3.6.0",
@@ -37,6 +38,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "pretty-quick": "^4.0.0",
+    "puppeteer": "^24.23.0",
     "react-is": "19.1.1",
     "tailwind-merge": "^2.3.0",
     "typescript": "^5.4.5"

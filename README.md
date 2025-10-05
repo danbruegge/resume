@@ -11,7 +11,7 @@ Resume Schema:
 
 ## Build
 
-- Install `wkhtmltopdf` to generate PDF from Page on build.
+- PDF generation uses Puppeteer (Chrome is automatically installed via postinstall hook)
 - Run `pnpm build`
 
 ## Deploy

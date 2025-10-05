@@ -91,8 +91,8 @@ export default async function Index() {
         </Container>
       </header>
 
-      <main className="mb-12 px-4">
-        <Container>
+      <main className="mb-12 px-4 print:p-0">
+        <Container className="print:break-before-page">
           <Title>Skills</Title>
           <ContentArticle>
             {skills.map((skill: SkillType) => (
@@ -102,7 +102,7 @@ export default async function Index() {
                   {skill.keywords.map((keyword: string) => (
                     <span
                       key={keyword}
-                      className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
+                      className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary print:border-t-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
                     >
                       {keyword}
                     </span>
@@ -116,7 +116,7 @@ export default async function Index() {
                 {languages.map((item: Language) => (
                   <span
                     key={item.language}
-                    className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
+                    className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary print:border-t-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
                   >
                     {item.language} ({item.fluency})
                   </span>
@@ -138,7 +138,7 @@ export default async function Index() {
                 <div
                   key={`${place.company}-${startDate}`}
                   style={{ breakInside: "avoid", pageBreakInside: "avoid" }}
-                  className="print:border-b print:border-neutral-200 print:pb-0 print:pt-8"
+                  className="print:border-b print:border-neutral-200 print:pb-6 print:pt-8"
                 >
                   <div className="lg:flex-row print:pt-2">
                     <Name>{place.company}</Name>

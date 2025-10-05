@@ -11,7 +11,9 @@ export function Container({
 
 export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
   return (
-    <h2 className="text-primary text-lg font-bold lg:text-xl">{children}</h2>
+    <h2 className="text-primary print:text-light text-lg font-bold lg:text-xl">
+      {children}
+    </h2>
   );
 }
 
@@ -37,7 +39,7 @@ export function A({
   ...props
 }: React.ComponentPropsWithRef<"a">) {
   const styles = twMerge(
-    "underline hover:no-underline text-primary opacity-75 print:opacity-100 hover:opacity-100",
+    "underline hover:no-underline text-primary print:text-light opacity-75 print:opacity-100 hover:opacity-100",
     className,
   );
 
@@ -71,7 +73,7 @@ export function DownloadCvButton() {
           viewBox="0 0 24 24"
           width="24"
           height="24"
-          className="mr-2 invisible sm:visible"
+          className="print:invisible mr-2 invisible sm:visible"
           stroke="currentColor"
         >
           <path
