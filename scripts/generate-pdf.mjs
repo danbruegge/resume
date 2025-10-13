@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import { readFileSync } from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -10,35 +11,27 @@ const htmlPath = join(projectRoot, "out", "index.html");
 const pdfPath = join(projectRoot, "public", "cv.pdf");
 
 (async () => {
-  console.log("🚀 Launching browser...");
-  const browser = await puppeteer.launch({
-    headless: true,
-  });
+  console.log("📝 Generating PDF...");
 
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
-  // Enable print media emulation
-  await page.emulateMediaType("print");
+  const html = readFileSync(htmlPath, "utf-8")
+    .replace(/href="\/_next\//g, 'href="./_next/')
+    .replace(/src="\/_next\//g, 'src="./_next/');
 
-  console.log(`📄 Loading HTML from: ${htmlPath}`);
-  await page.goto(`file://${htmlPath}`, {
-    waitUntil: "networkidle0",
+  await page.goto(`file://${dirname(htmlPath)}`, {
+    waitUntil: "domcontentloaded",
   });
+  await page.setContent(html, { waitUntil: "networkidle0" });
 
-  console.log("📝 Generating PDF...");
   await page.pdf({
     path: pdfPath,
     format: "A4",
-    printBackground: false,
-    margin: {
-      top: "2cm",
-      bottom: "2cm",
-      left: "2cm",
-      right: "2cm",
-    },
+    margin: { top: "2cm", bottom: "2cm", left: "2cm", right: "2cm" },
   });
 
-  console.log(`✅ PDF saved to: ${pdfPath}`);
-
   await browser.close();
+
+  console.log(`✅ PDF saved to: ${pdfPath}`);
 })();
