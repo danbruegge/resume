@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 import type { Viewport } from "next";
 import Script from "next/script";
 
-import "tailwindcss/tailwind.css";
+import "./globals.css";
 
 export const viewport: Viewport = {
   width: "device-width",

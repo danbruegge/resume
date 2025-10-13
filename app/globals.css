@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #9f5085;
+  --color-dark: #121212;
+  --color-light: #eee;
+
+  --text-xs: 15px;
+  --text-sm: 20px;
+  --text-base: 25px;
+  --text-lg: 30px;
+  --text-xl: 35px;
+  --text-xxl: 40px;
+}
