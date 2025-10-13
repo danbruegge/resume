@@ -38,3 +38,4 @@ yarn-error.log*
 resume.json
 deploy.sh
 public/cv.pdf
+public/cv.docx

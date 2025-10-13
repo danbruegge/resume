@@ -8,3 +8,6 @@ scp -r out/* <TARGET>
 
 echo "${HL}> Deploy PDF${NC}"
 scp -r public/cv.pdf <TARGET>
+
+echo "${HL}> Deploy DOCX${NC}"
+scp -r public/cv.docx d1000:html/cv.danbruegge.com/

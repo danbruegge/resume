@@ -14,7 +14,6 @@ import {
   Dl,
   Dt,
   Dd,
-  DetailsWrap,
 } from "@/components/ui";
 import { buildDate } from "@/utils/buildDate";
 import exampleResume from "@/resume.example.json";
@@ -51,7 +50,6 @@ export default async function Index() {
   const resume = await getResume();
   const { basics, skills, languages, work } = resume;
   console.log("📝 TODO: Add references section or PDF download.");
-  console.log("📝 TODO: Add word export or download.");
   return (
     <>
       <DownloadCvButton />
@@ -62,31 +60,27 @@ export default async function Index() {
           </h1>
           <Title>{basics.label}</Title>
           <Dl>
-            <DetailsWrap>
-              <Dt>Location</Dt>
-              <Dd>
-                {basics.location.postalCode} - {basics.location.city} -{" "}
+            <Dt>Location:</Dt>
+            <Dd>
+              <p>
+                {basics.location.postalCode}
+                {" - "}
+                {basics.location.city} {" - "}
                 {basics.location.region}
-              </Dd>
-            </DetailsWrap>
-            <DetailsWrap>
-              <Dt>Phone</Dt>
-              <Dd>
-                <A href={`tel:${basics.phone}`}>{basics.phone}</A>
-              </Dd>
-            </DetailsWrap>
-            <DetailsWrap>
-              <Dt>Mail</Dt>
-              <Dd>
-                <A href={`mailto:${basics.email}`}>{basics.email}</A>
-              </Dd>
-            </DetailsWrap>
-            <DetailsWrap>
-              <Dt>Website</Dt>
-              <Dd>
-                <A href={`https://${basics.website}`}>{basics.website}</A>
-              </Dd>
-            </DetailsWrap>
+              </p>
+            </Dd>
+            <Dt>Phone:</Dt>
+            <Dd>
+              <A href={`tel:${basics.phone}`}>{basics.phone}</A>
+            </Dd>
+            <Dt>Mail:</Dt>
+            <Dd>
+              <A href={`mailto:${basics.email}`}>{basics.email}</A>
+            </Dd>
+            <Dt>Website:</Dt>
+            <Dd>
+              <A href={`https://${basics.website}`}>{basics.website}</A>
+            </Dd>
           </Dl>
         </Container>
       </header>
@@ -98,30 +92,30 @@ export default async function Index() {
             {skills.map((skill: SkillType) => (
               <Skill key={skill.name}>
                 <Name>{skill.name}</Name>
-                <P>
+                <ul className="pt-4">
                   {skill.keywords.map((keyword: string) => (
-                    <span
+                    <li
                       key={keyword}
                       className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary print:border-t-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
                     >
                       {keyword}
-                    </span>
+                    </li>
                   ))}
-                </P>
+                </ul>
               </Skill>
             ))}
             <Skill>
               <Name>Languages</Name>
-              <P>
+              <ul>
                 {languages.map((item: Language) => (
-                  <span
+                  <li
                     key={item.language}
                     className="mr-3 mb-3 inline-block border border-neutral-200 border-t-primary print:border-t-neutral-200 bg-neutral-100 px-3 py-1 text-sm text-neutral-700 dark:border-t-primary dark:border-neutral-800 dark:bg-neutral-900 dark:text-light"
                   >
                     {item.language} ({item.fluency})
-                  </span>
+                  </li>
                 ))}
-              </P>
+              </ul>
             </Skill>
           </ContentArticle>
         </Container>

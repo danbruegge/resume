@@ -12,6 +12,7 @@ Resume Schema:
 ## Build
 
 - PDF generation uses Puppeteer (Chrome is automatically installed via postinstall hook)
+- DOCX generation uses html-to-docx npm package (automatically installed with dependencies)
 - Run `pnpm build`
 
 ## Deploy
