@@ -1,6 +1,6 @@
 This is a static [Next.js](https://nextjs.org/) resume project with [TailwindCSS](https://tailwindcss.com/) and the JSON-based standard for resumes, [JSON Resume](https://jsonresume.org/schema/).
 
-Resume Schema: 
+Resume Schema:
 
 ## Getting Started
 

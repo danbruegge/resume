@@ -23,16 +23,13 @@ const docxPath = join(projectRoot, "public", "cv.docx");
 
   await page.evaluate(() => {
     document.querySelectorAll("script").forEach((el) => el.remove());
-    document
-      .querySelectorAll('[class*="print:invisible"]')
-      .forEach((el) => el.remove());
+    document.querySelectorAll('[class*="print:invisible"]').forEach((el) => el.remove());
 
     // Transform inline skill lists to comma-separated text
     document.querySelectorAll("ul").forEach((ul) => {
       const items = ul.querySelectorAll("li");
       const isInlineList =
-        items.length > 0 &&
-        [...items].every((li) => li.classList.contains("inline-block"));
+        items.length > 0 && [...items].every((li) => li.classList.contains("inline-block"));
 
       if (isInlineList) {
         const text = [...items].map((li) => li.textContent.trim()).join(", ");
@@ -44,9 +41,7 @@ const docxPath = join(projectRoot, "public", "cv.docx");
 
     // Remove all <style> and <link rel="stylesheet"> tags
     document.querySelectorAll("style").forEach((el) => el.remove());
-    document
-      .querySelectorAll('link[rel="stylesheet"]')
-      .forEach((el) => el.remove());
+    document.querySelectorAll('link[rel="stylesheet"]').forEach((el) => el.remove());
 
     // Remove all print: prefixed classes
     document.querySelectorAll('[class*="print:"]').forEach((el) => {

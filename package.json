@@ -10,9 +10,11 @@
     "build": "pnpm build:page && pnpm build:pdf && pnpm build:docx",
     "deploy": "sh deploy.sh",
     "start": "next start",
-    "format": "prettier --ignore-path .gitignore --write '**/*.{js,jsx,ts,tsx,json}'",
-    "lint": "eslint .",
-    "types": "tsc --noEmit",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+    "lint": "oxlint --fix",
+    "typecheck": "tsc --noEmit",
+    "prepare": "git rev-parse --is-inside-work-tree > /dev/null 2>&1 && lefthook install || true",
     "postinstall": "npx puppeteer browsers install chrome"
   },
   "dependencies": {
@@ -24,27 +26,20 @@
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.5",
     "@types/node": "^25.9.1",
     "@types/react": "19.2.15",
-    "@typescript-eslint/eslint-plugin": "^8.59.4",
-    "@typescript-eslint/parser": "^8.59.4",
     "autoprefixer": "^10.5.0",
-    "eslint": "^9.37.0",
-    "eslint-config-next": "16.2.6",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.5.5",
-    "eslint-plugin-react": "^7.37.5",
     "html-to-docx": "^1.8.0",
-    "husky": "^9.1.7",
+    "lefthook": "^2.1.8",
+    "oxfmt": "^0.51.0",
+    "oxlint": "^1.66.0",
     "postcss": "^8.5.15",
-    "prettier": "^3.8.3",
-    "prettier-plugin-tailwindcss": "^0.8.0",
-    "pretty-quick": "^4.2.2",
     "puppeteer": "^25.0.4",
     "react-is": "19.2.6",
     "tailwind-merge": "^3.6.0",
     "typescript": "^6.0.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["lefthook"]
   }
 }

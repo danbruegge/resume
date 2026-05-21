@@ -1,26 +1,17 @@
 import { twMerge } from "tailwind-merge";
 
-export function Container({
-  children,
-  className,
-}: React.ComponentPropsWithoutRef<"div">) {
+export function Container({ children, className }: React.ComponentPropsWithoutRef<"div">) {
   const styles = twMerge("mx-auto container max-w-4xl", className);
 
   return <div className={styles}>{children}</div>;
 }
 
 export function Title({ children }: React.ComponentPropsWithoutRef<"h2">) {
-  return (
-    <h2 className="text-primary print:text-light text-lg font-bold lg:text-xl">
-      {children}
-    </h2>
-  );
+  return <h2 className="text-primary print:text-light text-lg font-bold lg:text-xl">{children}</h2>;
 }
 
 export function Name({ children }: React.ComponentPropsWithoutRef<"h3">) {
-  return (
-    <h3 className="text-base font-bold lg:text-lg break-all">{children}</h3>
-  );
+  return <h3 className="text-base font-bold lg:text-lg break-all">{children}</h3>;
 }
 
 export function P({ children, className }: React.ComponentPropsWithRef<"p">) {
@@ -33,11 +24,7 @@ export function Skill({ children }: React.ComponentPropsWithoutRef<"div">) {
   return <section className="pt-4 max-w-max">{children}</section>;
 }
 
-export function A({
-  children,
-  className,
-  ...props
-}: React.ComponentPropsWithRef<"a">) {
+export function A({ children, className, ...props }: React.ComponentPropsWithRef<"a">) {
   const styles = twMerge(
     "underline hover:no-underline text-primary print:text-light opacity-75 print:opacity-100 hover:opacity-100",
     className,
@@ -50,10 +37,7 @@ export function A({
   );
 }
 
-export function ContentArticle({
-  children,
-  className,
-}: React.ComponentPropsWithRef<"article">) {
+export function ContentArticle({ children, className }: React.ComponentPropsWithRef<"article">) {
   const styles = twMerge("lg:col-span-5", className);
 
   return <article className={styles}>{children}</article>;

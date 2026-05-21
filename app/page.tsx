@@ -24,9 +24,7 @@ type SkillType = Resume["skills"][number];
 type Language = Resume["languages"][number];
 
 async function getResume(): Promise<Resume> {
-  return JSON.parse(
-    await readFile(join(process.cwd(), "resume.json"), "utf-8"),
-  );
+  return JSON.parse(await readFile(join(process.cwd(), "resume.json"), "utf-8"));
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -146,11 +144,7 @@ export default async function Index() {
                       <li key={highlight}>{highlight}</li>
                     ))}
                   </ul>
-                  <P>
-                    {place.website && (
-                      <A href={`https://${place.website}`}>{place.website}</A>
-                    )}
-                  </P>
+                  <P>{place.website && <A href={`https://${place.website}`}>{place.website}</A>}</P>
                 </div>
               );
             })}

@@ -11,7 +11,7 @@ Static Next.js resume site using JSON Resume schema. Generates web, PDF, and DOC
 
 - `pnpm dev` - Dev server (Turbopack)
 - `pnpm build` - Full build (page + PDF + DOCX)
-- `pnpm types` / `pnpm lint` / `pnpm format` - Checks
+- `pnpm typecheck` / `pnpm lint` / `pnpm format` / `pnpm format:check` - Checks (oxlint + oxfmt; git hooks via lefthook)
 - `pnpm deploy` - SCP to remote server
 
 ## Key Files

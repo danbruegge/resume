@@ -6,7 +6,7 @@ Every `work[].summary` field in `resume.json` should follow this template. Highl
 
 One paragraph, **40–70 words**, hard cap **75**.
 
-1. **Opener (one clause)**: names the project/platform. Mention the team/squad **only if it has a distinctive name** (e.g. *Website Journey Squad*, *Team Green*, *Performance Crew*, *Tracking Team*). Don't write "on a 4-person SCRUM team"; that data lives in highlights.
+1. **Opener (one clause)**: names the project/platform. Mention the team/squad **only if it has a distinctive name** (e.g. _Website Journey Squad_, _Team Green_, _Performance Crew_, _Tracking Team_). Don't write "on a 4-person SCRUM team"; that data lives in highlights.
 2. **Action body**: **3–4 parallel past-tense verbs**, joined by commas or one semicolon. Each verb names a concrete deliverable.
 3. **Outcome anchors**: attach a short "to X" or "for Y" clause to **one or two** of the actions, not all of them.
 
@@ -14,19 +14,19 @@ One paragraph, **40–70 words**, hard cap **75**.
 
 To avoid duplication, structural team info has one home:
 
-| Field | What lives here |
-|-------|-----------------|
-| Summary | Project/platform name, domain hint, team/squad **name** (if distinctive), duration (if notable), the *what you did* |
+| Field      | What lives here                                                                                                                                                                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Summary    | Project/platform name, domain hint, team/squad **name** (if distinctive), duration (if notable), the _what you did_                                                                                                                          |
 | Highlights | Team **size** + **methodology** on a single line, phrased as a noun phrase: `"SCRUM team of ~8 people"`, `"Agile team of ~15 people"`, or `"Team of ~5 people"` if there was no formal methodology. Tools, DevOps, anything else structural. |
 
-If the team had a memorable name *and* a methodology label, append it in parens: `"Agile team of ~8 people (Website Journey Squad)"`.
+If the team had a memorable name _and_ a methodology label, append it in parens: `"Agile team of ~8 people (Website Journey Squad)"`.
 
 ## Voice
 
 - **Implicit first-person.** No "I"; the verbs carry agency.
 - **Past tense** for completed engagements ("Migrated…", "Built…").
 - **Gerund opener** ("Contributing to…") for ongoing engagements, followed by a past-tense action body. This keeps the entry feeling current without making every verb a clunky gerund.
-- **Tools stay in highlights**, not in the summary. Mention a tool inline only when the action *is* the tool migration (e.g. "from Contentful to Builder.io").
+- **Tools stay in highlights**, not in the summary. Mention a tool inline only when the action _is_ the tool migration (e.g. "from Contentful to Builder.io").
 
 ## Spelling
 
@@ -37,12 +37,15 @@ If the team had a memorable name *and* a methodology label, append it in parens:
 **Avoid em-dashes (`—`)**. Em-dashes feel insertive and break the reading flow, especially when used for appositives describing the company or project. Pick one of these alternatives, in this order of preference:
 
 1. **Commas**: default choice when the appositive is short (≤8 words).
+
    > Joined Webfleet, Bridgestone's fleet-management SaaS, for a year on Team Green.
 
 2. **Parentheses**: use when the main sentence already has a comma-heavy structure (e.g. a long action-verb list follows) and adding more commas would create ambiguity.
+
    > Contributed to the Mediamarkt/Saturn shop system (the e-commerce platform for one of Europe's largest electronics retailers) across two squads.
 
 3. **Split into two sentences**: use when the appositive is long enough (~12+ words) to stand on its own as context.
+
    > Contributing to Boehringer Ingelheim's sales-forecasting React application. The pharma-industry tool visualizes multi-year sales predictions produced by Python/Flask backend models.
 
 4. **Restructure to tighten**: collapse the appositive into the main clause when possible.
