@@ -2,11 +2,10 @@ import HTMLtoDOCX from "html-to-docx";
 import { readFileSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import puppeteer from "puppeteer";
+import { launch } from "puppeteer";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const projectRoot = join(__dirname, "..");
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const projectRoot = join(scriptDir, "..");
 
 const htmlPath = join(projectRoot, "out", "index.html");
 const docxPath = join(projectRoot, "public", "cv.docx");
@@ -14,7 +13,7 @@ const docxPath = join(projectRoot, "public", "cv.docx");
 (async () => {
   console.log("📝 Generating DOCX...");
 
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await launch({ headless: true });
   const page = await browser.newPage();
 
   await page.setContent(readFileSync(htmlPath, "utf-8"), {

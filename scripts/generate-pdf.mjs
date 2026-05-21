@@ -1,11 +1,10 @@
-import puppeteer from "puppeteer";
+import { launch } from "puppeteer";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { readFileSync } from "fs";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const projectRoot = join(__dirname, "..");
+const scriptDir = dirname(fileURLToPath(import.meta.url));
+const projectRoot = join(scriptDir, "..");
 
 const htmlPath = join(projectRoot, "out", "index.html");
 const pdfPath = join(projectRoot, "public", "cv.pdf");
@@ -13,7 +12,7 @@ const pdfPath = join(projectRoot, "public", "cv.pdf");
 (async () => {
   console.log("📝 Generating PDF...");
 
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await launch({ headless: true });
   const page = await browser.newPage();
 
   const html = readFileSync(htmlPath, "utf-8")
