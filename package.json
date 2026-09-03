@@ -2,6 +2,7 @@
   "name": "@danbruegge/resume",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@11.24.0",
   "scripts": {
     "dev": "next dev --turbopack",
     "build:page": "next build",
@@ -18,28 +19,25 @@
     "postinstall": "npx puppeteer browsers install chrome"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.3.0",
-    "date-fns": "^4.2.1",
-    "next": "16.2.6",
-    "react": "19.2.6",
-    "react-dom": "19.2.6",
-    "tailwindcss": "^4.3.0"
+    "@tailwindcss/postcss": "^4.3.3",
+    "date-fns": "^4.4.0",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
-    "@types/react": "19.2.15",
-    "autoprefixer": "^10.5.0",
+    "@types/react": "19.2.18",
+    "autoprefixer": "^10.5.4",
     "html-to-docx": "^1.8.0",
-    "lefthook": "^2.1.8",
+    "lefthook": "^2.1.12",
     "oxfmt": "^0.51.0",
-    "oxlint": "^1.66.0",
-    "postcss": "^8.5.15",
-    "puppeteer": "^25.0.4",
-    "react-is": "19.2.6",
+    "oxlint": "^1.81.0",
+    "postcss": "^8.5.26",
+    "puppeteer": "^25.9.0",
+    "react-is": "19.2.8",
     "tailwind-merge": "^3.6.0",
     "typescript": "^6.0.3"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["lefthook"]
   }
 }
