@@ -52,7 +52,7 @@ export function DownloadCvButton() {
         viewBox="0 0 24 24"
         width="24"
         height="24"
-        className="print:invisible mr-2 invisible sm:visible"
+        className="mr-2 invisible sm:visible"
         stroke="currentColor"
       >
         <path
