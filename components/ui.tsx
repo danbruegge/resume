@@ -45,7 +45,7 @@ export function ContentArticle({ children, className }: React.ComponentPropsWith
 
 export function DownloadCvButton() {
   return (
-    <div className="print:invisible bg-primary py-2 flex items-center justify-center font-bold text-light">
+    <div className="print:hidden bg-primary py-2 flex items-center justify-center font-bold text-light">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
